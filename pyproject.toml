@@ -13,7 +13,6 @@ dependencies = [
 ]
 
 [tool.setuptools_scm]
-version_scheme = "post-release"
 local_scheme = "no-local-version"
 write_to = "yggui/_version.py"
 
