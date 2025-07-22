@@ -2,11 +2,8 @@ name: Build and Push appimage
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'yggui/**'
-      - 'xdg/**'
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
   workflow_dispatch:
 
 jobs:
@@ -90,8 +87,8 @@ jobs:
       - name: Upload build ${{ matrix.arch }}
         uses: actions/upload-artifact@v4
         with:
-          name: Drosophila-${{ matrix.arch }}
-          path: Drosophila-${{ matrix.arch }}.AppImage
+          name: Drosophila-${{ github.ref_name }}-${{ matrix.arch }}
+          path: Drosophila-${{ github.ref_name }}-${{ matrix.arch }}.AppImage
 
 
   publish:
@@ -99,18 +96,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Get short commit SHA and commit count
-        id: vars
-        run: | 
-          echo "short_sha=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
-          echo "commit_number=$(git rev-list --count HEAD)" >> "$GITHUB_OUTPUT"
-        shell: bash
-
       - name: Download all builds
         uses: actions/download-artifact@v4
         with:
@@ -123,9 +108,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: build-${{ steps.vars.outputs.commit_number }}-${{ steps.vars.outputs.short_sha }}
-          name: Build from commit ${{ steps.vars.outputs.short_sha }}
-          prerelease: true
+          tag_name: ${{ github.ref_name }}
+          name: Drosophila ${{ github.ref_name }}
           generate_release_notes: true
           files: builds/Drosophila-*
 

@@ -2,12 +2,8 @@ name: Build and Push Flatpak manifest
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'yggui/**'
-      - 'xdg/**'
-      - 'io.github.grisha765.Drosophila.yml'
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
   workflow_dispatch:
 
 env:
