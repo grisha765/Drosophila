@@ -87,8 +87,8 @@ jobs:
       - name: Upload build ${{ matrix.arch }}
         uses: actions/upload-artifact@v4
         with:
-          name: Drosophila-${{ github.ref_name }}-${{ matrix.arch }}
-          path: Drosophila-${{ github.ref_name }}-${{ matrix.arch }}.AppImage
+          name: Drosophila-${{ matrix.arch }}
+          path: Drosophila-${{ matrix.arch }}.AppImage
 
 
   publish:
