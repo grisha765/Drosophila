@@ -7,7 +7,7 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Gtk, Adw, Gdk, Gio  # type: ignore
 
-from yggui.core.common import Gui, Binary, get_app_info
+from yggui.core.common import Gui, Binary, get_app_info, Runtime
 from yggui.funcs.config import create_config
 from yggui.funcs.peers import load_config
 from yggui.exec.pkexec_shell import PkexecShell
@@ -176,7 +176,7 @@ class MyApp(Adw.Application):
             info = get_app_info()
 
             self.about_dialog.set_application_name(info.get("name", ""))
-            self.about_dialog.set_version(info.get("version", "dev"))
+            self.about_dialog.set_version(Runtime.version)
             self.about_dialog.set_developer_name(info.get("developer_name", ""))
             self.about_dialog.set_license_type(Gtk.License.GPL_3_0)
             self.about_dialog.set_website(info.get("website", ""))

@@ -1,4 +1,5 @@
 import shutil, os, subprocess, re
+from importlib.metadata import version, PackageNotFoundError
 from pathlib import Path
 from importlib.resources import files
 import xml.etree.ElementTree as ET
@@ -42,6 +43,10 @@ class Runtime:
     runtime_dir.mkdir(parents=True, exist_ok=True)
     admin_socket = str(runtime_dir / 'yggdrasil.sock')
     config_path = xdg_config('yggui') / 'config.json'
+    try:
+        version = version("Drosophila")
+    except PackageNotFoundError:
+        version = "0.0.0.dev0"
 
 
 class Binary:
