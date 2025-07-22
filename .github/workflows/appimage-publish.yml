@@ -103,6 +103,10 @@ jobs:
           path: builds
           merge-multiple: true
 
+      - name: Rename bundles
+        run: for f in Drosophila-*.AppImage; do mv "$f" "Drosophila-${{ github.ref_name }}-${f#Drosophila-}"; done
+        working-directory: builds
+
       - name: Create Pre-release
         uses: softprops/action-gh-release@v2.3.2
         env:
