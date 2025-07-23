@@ -176,7 +176,7 @@ class MyApp(Adw.Application):
             info = get_app_info()
 
             self.about_dialog.set_application_name(info.get("name", ""))
-            self.about_dialog.set_version(Runtime.version)
+            self.about_dialog.set_version(Runtime.version if Runtime.version != "0.0.0" else info.get("version", "dev"))
             self.about_dialog.set_developer_name(info.get("developer_name", ""))
             self.about_dialog.set_license_type(Gtk.License.GPL_3_0)
             self.about_dialog.set_website(info.get("website", ""))

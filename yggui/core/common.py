@@ -46,7 +46,7 @@ class Runtime:
     try:
         version = version("Drosophila")
     except PackageNotFoundError:
-        version = "0.0.0.dev0"
+        version = "0.0.0"
 
 
 class Binary:
