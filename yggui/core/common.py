@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 
 def which_in_flatpak(cmd: str) -> str | None:
     result = subprocess.run(
-        ["flatpak-spawn", "--host", "command", "-v", cmd],
+        ["flatpak-spawn", "--host", "sh", "-c", f"command -v {cmd}"],
         capture_output=True,
         text=True,
         check=False
