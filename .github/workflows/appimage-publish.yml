@@ -107,17 +107,6 @@ jobs:
         run: for f in Drosophila-*.AppImage; do mv "$f" "Drosophila-${{ github.ref_name }}-${f#Drosophila-}"; done
         working-directory: builds
 
-      - name: Determine if this is a prerelease
-        id: version
-        run: |
-          TAG="${{ github.ref_name }}"
-          PATCH=$(echo "$TAG" | sed -E 's/^v[0-9]+\.[0-9]+\.([0-9]+).*$/\1/')
-          if [ "$PATCH" -ne 0 ]; then
-            echo "prerelease=true" >> $GITHUB_OUTPUT
-          else
-            echo "prerelease=false" >> $GITHUB_OUTPUT
-          fi
-
       - name: Create Pre-release
         uses: softprops/action-gh-release@v2.3.2
         env:
@@ -126,6 +115,6 @@ jobs:
           tag_name: ${{ github.ref_name }}
           name: Drosophila ${{ github.ref_name }}
           generate_release_notes: true
-          prerelease: ${{ steps.version.outputs.prerelease }}
+          prerelease: false
           files: builds/Drosophila-*
 
