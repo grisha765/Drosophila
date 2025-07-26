@@ -1,6 +1,8 @@
 import subprocess
 import time
+from yggui.core.common import get_logger
 from threading import Lock
+log = get_logger(__name__)
 
 
 class Shell:
@@ -44,6 +46,7 @@ class Shell:
         for line in iter(stdout.readline, ""):
             if line.strip() == marker:
                 break
+            log.info(line.rstrip("\n"))
             output_lines.append(line)
             if time.time() - start > timeout:
                 break
@@ -67,6 +70,7 @@ class Shell:
         for line in iter(stdout.readline, ""):
             if sentinel in line:
                 return int(line.split()[0])
+            log.info(line.rstrip("\n"))
 
         raise RuntimeError("Failed to capture background PID")
 

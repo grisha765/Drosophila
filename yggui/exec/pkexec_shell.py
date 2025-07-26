@@ -1,7 +1,8 @@
 import subprocess
 import time
 from threading import Lock
-from yggui.core.common import Runtime, Binary
+from yggui.core.common import Runtime, Binary, get_logger
+log = get_logger(__name__)
 
 
 class PkexecShell:
@@ -50,6 +51,7 @@ class PkexecShell:
         for line in iter(stdout.readline, ""):
             if line.strip() == marker:
                 break
+            log.info(line.rstrip("\n"))
             output_lines.append(line)
             if time.time() - start > timeout:
                 break
@@ -73,6 +75,7 @@ class PkexecShell:
         for line in iter(stdout.readline, ""):
             if sentinel in line:
                 return int(line.split()[0])
+            log.info(line.rstrip("\n"))
 
         raise RuntimeError("Failed to capture background PID")
 

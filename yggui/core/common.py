@@ -1,4 +1,4 @@
-import shutil, os, subprocess, re
+import shutil, os, subprocess, re, logging
 from importlib.metadata import version, PackageNotFoundError
 from pathlib import Path
 from importlib.resources import files
@@ -14,6 +14,7 @@ def which_in_flatpak(cmd: str) -> str | None:
     if result.returncode == 0:
         return result.stdout.strip()
     return None
+
 
 def xdg_config(app_name: str) -> Path:
     default_base = Path.home() / ".config"
@@ -147,3 +148,20 @@ def get_app_info() -> dict:
 
     except ET.ParseError:
         return {}
+
+
+def get_logger(name: str) -> logging.Logger:
+    logger = logging.getLogger(name)
+
+    if not logger.handlers:
+        logger.setLevel(logging.INFO)
+
+        fname = name.rsplit('.', 1)[-1]
+        file_path = Runtime.runtime_dir / f'{fname}.log'
+        handler = logging.FileHandler(file_path, encoding='utf-8', delay=True)
+        handler.setFormatter(logging.Formatter('%(asctime)s  %(message)s'))
+
+        logger.addHandler(handler)
+        logger.propagate = False
+
+    return logger
