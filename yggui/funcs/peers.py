@@ -76,12 +76,12 @@ def save_peers_to_disk(app):
     write_config(cfg)
 
 
-def proto_widget(proto: str) -> Gtk.Widget:
+def build_proto_widget(proto: str) -> tuple[Gtk.Widget, str, Gtk.Image]:
     base_name = {
         "tcp": "network-wired-symbolic",
         "tls": "network-wired-symbolic",
         "quic": "network-transmit-receive-symbolic",
-        "ws":  "web-browser-symbolic",
+        "ws": "web-browser-symbolic",
         "wss": "web-browser-symbolic",
     }.get(proto, "network-server-symbolic")
 
@@ -95,9 +95,9 @@ def proto_widget(proto: str) -> Gtk.Widget:
         lock.set_valign(Gtk.Align.END)
         lock.set_margin_bottom(2)
         overlay.add_overlay(lock)
-        return overlay
+        return overlay, base_name, base_img
 
-    return base_img
+    return base_img, base_name, base_img
 
 
 def rebuild_peers_box(app):
@@ -129,7 +129,8 @@ def rebuild_peers_box(app):
         row.set_subtitle(" • ".join(subtitle_parts))
         row.set_activatable(False)
 
-        row.add_prefix(proto_widget(proto))
+        icon_widget, icon_name, image_widget = build_proto_widget(proto)
+        row.add_prefix(icon_widget)
 
         trash_btn = Gtk.Button()
         trash_btn.set_icon_name("user-trash-symbolic")
@@ -140,13 +141,9 @@ def rebuild_peers_box(app):
         trash_btn.connect("clicked", lambda _b, p=peer: remove_peer(app, p))
         app.peers_box.append(row)
 
-        app._peer_rows[peer.split("?", 1)[0]] = row
-        app._peer_icons[peer.split("?", 1)[0]] = (
-            row.get_first_child().get_first_child()
-            if proto in {"tls", "wss"}
-            else row.get_first_child(),
-            base if (base := proto_widget(proto)) else None,
-        )
+        peer_key = peer.split("?", 1)[0]
+        app._peer_rows[peer_key] = row
+        app._peer_icons[peer_key] = (image_widget, icon_name)
 
     count = len(app.peers)
     if count == 0:
