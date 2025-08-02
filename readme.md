@@ -50,6 +50,6 @@ python -m yggui
 
 This program is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License, version 3 or (at your option) any later version** published by the Free Software Foundation.
 
-Copyright © 2025 Grisha
+Copyright © 2025 ergolyam
 
 See the full license text in the [LICENSE](license) file or online at <https://www.gnu.org/licenses/gpl-3.0.txt>.

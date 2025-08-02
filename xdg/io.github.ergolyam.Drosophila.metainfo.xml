@@ -38,7 +38,7 @@
     </screenshot>
   </screenshots>
   <developer id="io.github.ergolyam">
-    <name>Grisha</name>
+    <name>ergolyam</name>
   </developer>
   <launchable type="desktop-id">io.github.ergolyam.Drosophila.desktop</launchable>
   <url type="homepage">https://github.com/ergolyam/Drosophila</url>
