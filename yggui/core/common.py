@@ -37,7 +37,7 @@ class Regexp:
 
 
 class Runtime:
-    app_id = "io.github.grisha765.Drosophila"
+    app_id = "io.github.ergolyam.Drosophila"
     is_flatpak = Path('/.flatpak-info').is_file()
     is_appimage = os.getenv("APPIMAGE") is not None
     runtime_dir = Path(os.environ.get('XDG_RUNTIME_DIR', '/tmp')) / 'yggui'

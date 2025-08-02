@@ -5,7 +5,7 @@ These steps clone **Drosophila**, compile the required binaries and run the UI l
 ## 1. Clone the repository
 
 ```bash
-git clone https://github.com/grisha765/Drosophila.git
+git clone https://github.com/ergolyam/Drosophila.git
 cd Drosophila
 ````
 

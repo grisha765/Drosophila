@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Drosophila
 Comment=Graphical interface for the Yggdrasil network
-Icon=io.github.grisha765.Drosophila
+Icon=io.github.ergolyam.Drosophila
 Type=Application
 Exec=yggui %U
 Categories=Network;GTK;Utility;

@@ -6,13 +6,13 @@ A modern GTK 4 + libadwaita desktop interface for running, configuring and monit
 ### Flatpak
 
 ```bash
-flatpak remote-add --user Drosophila https://grisha765.github.io/Drosophila/grisha765.flatpakrepo
-flatpak install --user Drosophila io.github.grisha765.Drosophila
+flatpak remote-add --user Drosophila https://ergolyam.github.io/Drosophila/ergolyam.flatpakrepo
+flatpak install --user Drosophila io.github.ergolyam.Drosophila
 ````
 
 ### AppImage
 
-Download the latest AppImage from the [releases page](https://github.com/grisha765/Drosophila/releases) and make it executable:
+Download the latest AppImage from the [releases page](https://github.com/ergolyam/Drosophila/releases) and make it executable:
 
 ```bash
 chmod +x Drosophila-*.AppImage 
@@ -22,7 +22,7 @@ chmod +x Drosophila-*.AppImage
 ### Python package
 
 ```bash
-pip install --upgrade git+https://github.com/grisha765/Drosophila.git@main#egg=Drosophila
+pip install --upgrade git+https://github.com/ergolyam/Drosophila.git@main#egg=Drosophila
 python -m yggui
 ```
 

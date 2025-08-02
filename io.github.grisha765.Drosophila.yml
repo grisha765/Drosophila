@@ -1,4 +1,4 @@
-app-id: io.github.grisha765.Drosophila
+app-id: io.github.ergolyam.Drosophila
 runtime: org.gnome.Platform
 runtime-version: '48'
 sdk: org.freedesktop.Sdk//24.08
@@ -8,7 +8,7 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --share=network
-  - --own-name=io.github.grisha765.Drosophila
+  - --own-name=io.github.ergolyam.Drosophila
   - --talk-name=org.freedesktop.Flatpak
   - --filesystem=xdg-run/yggui:create
 
@@ -54,9 +54,9 @@ modules:
     buildsystem: simple
     build-commands:
       - pip3 install --no-build-isolation --no-cache-dir --no-deps --prefix=/app .
-      - install -Dm644 xdg/io.github.grisha765.Drosophila.svg /app/share/icons/hicolor/scalable/apps/io.github.grisha765.Drosophila.svg
-      - install -Dm755 xdg/io.github.grisha765.Drosophila.desktop /app/share/applications/io.github.grisha765.Drosophila.desktop
-      - install -Dm644 xdg/io.github.grisha765.Drosophila.metainfo.xml /app/share/metainfo/io.github.grisha765.Drosophila.metainfo.xml
+      - install -Dm644 xdg/io.github.ergolyam.Drosophila.svg /app/share/icons/hicolor/scalable/apps/io.github.ergolyam.Drosophila.svg
+      - install -Dm755 xdg/io.github.ergolyam.Drosophila.desktop /app/share/applications/io.github.ergolyam.Drosophila.desktop
+      - install -Dm644 xdg/io.github.ergolyam.Drosophila.metainfo.xml /app/share/metainfo/io.github.ergolyam.Drosophila.metainfo.xml
     sources:
       - type: dir
         path: .

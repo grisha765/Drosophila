@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  MANIFEST: io.github.grisha765.Drosophila.yml
+  MANIFEST: io.github.ergolyam.Drosophila.yml
 
 jobs:
   build:

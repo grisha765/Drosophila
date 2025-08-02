@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-  <id>io.github.grisha765.Drosophila</id>
+  <id>io.github.ergolyam.Drosophila</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
   <name>Drosophila</name>
@@ -31,19 +31,19 @@
   <provides><binary>yggui</binary></provides>
   <screenshots>
     <screenshot type="default">
-      <image>https://github.com/grisha765/Drosophila/blob/ee6ca333adbdc6b72e6fbf7201776bf518a0d288/.github/docs/main.png</image>
+      <image>https://github.com/ergolyam/Drosophila/blob/ee6ca333adbdc6b72e6fbf7201776bf518a0d288/.github/docs/main.png</image>
     </screenshot>
     <screenshot>
-      <image>https://github.com/grisha765/Drosophila/blob/ee6ca333adbdc6b72e6fbf7201776bf518a0d288/.github/docs/settings.png</image>
+      <image>https://github.com/ergolyam/Drosophila/blob/ee6ca333adbdc6b72e6fbf7201776bf518a0d288/.github/docs/settings.png</image>
     </screenshot>
   </screenshots>
-  <developer id="io.github.grisha765">
+  <developer id="io.github.ergolyam">
     <name>Grisha</name>
   </developer>
-  <launchable type="desktop-id">io.github.grisha765.Drosophila.desktop</launchable>
-  <url type="homepage">https://github.com/grisha765/Drosophila</url>
-  <url type="vcs-browser">https://github.com/grisha765/Drosophila</url>
-  <url type="bugtracker">https://github.com/grisha765/Drosophila/issues</url>
+  <launchable type="desktop-id">io.github.ergolyam.Drosophila.desktop</launchable>
+  <url type="homepage">https://github.com/ergolyam/Drosophila</url>
+  <url type="vcs-browser">https://github.com/ergolyam/Drosophila</url>
+  <url type="bugtracker">https://github.com/ergolyam/Drosophila/issues</url>
   <releases>
     <release version="1.0.0" date="2025-07-23"/>
   </releases>
